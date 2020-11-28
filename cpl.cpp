@@ -19,7 +19,7 @@ int main () {
  
    cout << c << endl ;
 
-   f = 70.0/3.0;
+   f = 70.0/3.0; 
    cout << f << endl ;
  
    return 0;
