@@ -20,6 +20,15 @@ void printList(Node *head)
    }
 }
 
+void addNodeFirstToList(Node** head, int data)
+{
+   Node *temp= new Node();
+   //Node *first=(*head);
+   temp->nptr=(*head);
+   temp->data= data;
+   (*head)= temp;   
+}
+
 void addNodeLastToList(Node** head, int data)
 {
    //cout<<"Add : "<<head<<endl;
@@ -57,7 +66,7 @@ int main()
    addNodeLastToList(&head, 2);
    //cout<<"Add2 : "<<head<<endl;
    addNodeLastToList(&head, 3);
-
+   addNodeFirstToList(&head, 5); 
    /*  
    head= new Node();
    second = new Node();
