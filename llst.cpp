@@ -20,6 +20,28 @@ void printList(Node *head)
    }
 }
 
+void deleteNodeLastToList(Node** head)
+{
+
+   if((*head)==NULL)
+   {
+      cout<<"List is Empty"<<endl;
+      return;
+   } 
+   if((*head)->nptr==NULL)
+   {
+      (*head) = NULL;
+      return ;
+   }
+   Node* temp=(*head);
+   while(temp->nptr->nptr!=NULL)
+   {
+       //cout<<"Index : "<<head->data<<" "<<"Data : "<<head->data<<endl;
+       temp=temp->nptr; 
+   }
+  temp->nptr = NULL;
+}
+
 int FindLengthToList(Node* head)
 {
    int linkListLength=0;
@@ -110,6 +132,12 @@ int main()
    cout<<"Hello Link list"<<endl;
    printList(head);
    cout<<"Length of List: "<<FindLengthToList(head)<<endl;
+
+   deleteNodeLastToList(&head);
+   printList(head);
+   cout<<"Length of List: "<<FindLengthToList(head)<<endl;
+
+  
 }
 
 
