@@ -29,6 +29,17 @@ void addNodeFirstToList(Node** head, int data)
    (*head)= temp;   
 }
 
+void addNodeMiddleToList(Node* head, int data)
+{
+   if(head==NULL)
+      return; 
+   Node *temp= new Node();
+   temp->data= data;
+   //Node *last=(*head);
+   temp->nptr=head->nptr;
+   head->nptr=temp;    
+}
+
 void addNodeLastToList(Node** head, int data)
 {
    //cout<<"Add : "<<head<<endl;
@@ -67,6 +78,8 @@ int main()
    //cout<<"Add2 : "<<head<<endl;
    addNodeLastToList(&head, 3);
    addNodeFirstToList(&head, 5); 
+   addNodeMiddleToList(head->nptr,6);
+
    /*  
    head= new Node();
    second = new Node();
