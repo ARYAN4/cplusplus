@@ -7,6 +7,7 @@ extern int c;
 extern float f;
   
 int main () {
+
    // Variable definition:
    int a, b; 
    int c; 
