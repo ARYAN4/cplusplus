@@ -20,6 +20,17 @@ void printList(Node *head)
    }
 }
 
+int FindLengthToList(Node* head)
+{
+   int linkListLength=0;
+   while(head!=NULL)
+   {
+       linkListLength++;  
+       head=head->nptr; 
+   }
+ return linkListLength;
+}
+
 void addNodeFirstToList(Node** head, int data)
 {
    Node *temp= new Node();
@@ -80,6 +91,8 @@ int main()
    addNodeFirstToList(&head, 5); 
    addNodeMiddleToList(head->nptr,6);
 
+   
+
    /*  
    head= new Node();
    second = new Node();
@@ -96,6 +109,7 @@ int main()
    */
    cout<<"Hello Link list"<<endl;
    printList(head);
+   cout<<"Length of List: "<<FindLengthToList(head)<<endl;
 }
 
 
