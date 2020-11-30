@@ -19,6 +19,37 @@ void printList(Node *head)
        head=head->nptr; 
    }
 }
+void deleteNodeKeyToList(Node** head, int data)
+{
+   
+   if((*head)==NULL)
+   {
+       cout<<"List is Empty<<endl;"
+   }
+   Node* temp=(*head);
+   Node* ptrev=NULL
+   while(temp->data!=data && temp!=NULL)
+   {
+     prev=temp;
+     temp=temp->nptr;
+      
+   }
+   if(temp==(*head))
+   {
+     (*head)=temp->nptr;
+     temp->nptr=NULL;
+     delete temp;
+     return ;
+   }
+   if(temp==NULL)
+   {
+     cout<<"Key is not in List"<<endl;
+   }
+   prev->nptr=temp->nptr;
+   temp->nptr=NULL;
+   delete temp;
+   
+}
 
 void deleteNodeLastToList(Node** head)
 {
@@ -133,10 +164,13 @@ int main()
    printList(head);
    cout<<"Length of List: "<<FindLengthToList(head)<<endl;
 
-   deleteNodeLastToList(&head);
+   //deleteNodeLastToList(&head);
+   //printList(head);
+   //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
+
+   deleteNodeKeyToList(&head, 2);
    printList(head);
    cout<<"Length of List: "<<FindLengthToList(head)<<endl;
-
   
 }
 
