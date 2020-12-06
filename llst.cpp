@@ -24,10 +24,10 @@ void deleteNodeKeyToList(Node** head, int data)
    
    if((*head)==NULL)
    {
-       cout<<"List is Empty<<endl;"
+       cout<<"List is Empty<<endl"<<endl;
    }
    Node* temp=(*head);
-   Node* ptrev=NULL
+   Node* prev=NULL;
    while(temp->data!=data && temp!=NULL)
    {
      prev=temp;
@@ -127,6 +127,29 @@ void addNodeLastToList(Node** head, int data)
    return ;
 }
 
+void detectLoopInList(Node* head)
+{
+
+   if((head)==NULL)
+   {
+       cout<<"List is Empty<<endl"<<endl;
+   }
+   
+   Node* fast = head;
+   Node* slow = head;   
+   while(fast !=NULL && slow !=NULL && fast->nptr!=NULL)
+   {
+      slow = slow->nptr;
+      fast = fast->nptr->nptr;
+
+      if(fast == slow)
+      {
+        cout<<"Detec loop in List"<<endl;
+        break;
+      }  
+   } 
+  return ;
+}
 
 int main()
 {
@@ -167,10 +190,12 @@ int main()
    //deleteNodeLastToList(&head);
    //printList(head);
    //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
+   head->nptr->nptr->nptr->nptr->nptr = head->nptr;
+   detectLoopInList(head);
 
-   deleteNodeKeyToList(&head, 2);
-   printList(head);
-   cout<<"Length of List: "<<FindLengthToList(head)<<endl;
+   //deleteNodeKeyToList(&head, 2);
+   //printList(head);
+   //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
 
   
 }
