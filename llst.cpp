@@ -174,22 +174,91 @@ void reverseList(Node** head)
   return ;
 }
 
+void segregateEvenOddList(Node** head)
+{
+
+   if((*head)==NULL)
+   {
+       cout<<"List is Empty<<endl"<<endl;
+   }
+   
+   Node* current = (*head);
+   Node* oddHNode=NULL;
+   Node* evenHNode = NULL;
+   Node* lastevenNode = NULL;
+   Node* lastoddNode = NULL;
+
+   while(current !=NULL)
+   {
+      if(current->data %2 ==0)
+      {
+         
+         if(evenHNode == NULL)
+         {
+             evenHNode=current;
+             lastevenNode = current;
+         }
+         else 
+         {
+           lastevenNode->nptr = current;
+           lastevenNode = current;    
+         }
+
+      }
+      else
+      {
+         if(oddHNode == NULL)
+         {
+             oddHNode=current;
+             lastoddNode = current;
+         }
+         else 
+         {
+           lastoddNode->nptr = current;
+           lastoddNode = current;       
+         }
+      }
+      current = current->nptr;  
+   } 
+   if(oddHNode ==NULL)
+   {
+      lastevenNode->nptr = NULL;
+      (*head) = evenHNode;
+   }
+   else if(evenHNode ==NULL)
+   {
+     lastoddNode->nptr = NULL;
+     (*head) = oddHNode;
+   }
+   else  
+   {
+      // Make odd first;
+      lastevenNode->nptr=NULL;
+      lastoddNode->nptr = evenHNode;
+      (*head) = oddHNode;
+      // Make even first;
+      // lastoddNode->nptr=NULL;
+      // lastevenNode->nptr = oddHNode;
+      //(*head) = evenHNode;
+          
+   }
+
+  return ;
+}
+
 int main()
 {
 
    Node *head=NULL; 
-   Node *temp=NULL;
-   //Node *second=NULL;
-   //Node *third=NULL;
    
    addNodeLastToList(&head, 1);
-   //cout<<"Add2 : "<<head<<endl;
    addNodeLastToList(&head, 2);
-   //cout<<"Add2 : "<<head<<endl;
    addNodeLastToList(&head, 3);
    addNodeFirstToList(&head, 5); 
    addNodeMiddleToList(head->nptr,6);
-
+   addNodeLastToList(&head, 4);
+   addNodeLastToList(&head, 7);
+   addNodeLastToList(&head, 8);
    
 
    /*  
@@ -212,10 +281,16 @@ int main()
 
    //deleteNodeLastToList(&head);
    //printList(head);
+
    //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
+   
    //head->nptr->nptr->nptr->nptr->nptr = head->nptr;
    //detectLoopInList(head);
-   reverseList(&head);
+   
+   //reverseList(&head);
+   
+    segregateEvenOddList(&head);
+
    //deleteNodeKeyToList(&head, 2);
    printList(head);
    //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
