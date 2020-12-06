@@ -12,10 +12,10 @@ class Node{
 
 void printList(Node *head)
 {
-
+  int ii=0; 
    while(head!=NULL)
    {
-       cout<<"Index : "<<head->data<<" "<<"Data : "<<head->data<<endl;
+       cout<<"Index : "<<ii++<<" "<<"Data : "<<head->data<<endl;
        head=head->nptr; 
    }
 }
@@ -151,6 +151,29 @@ void detectLoopInList(Node* head)
   return ;
 }
 
+void reverseList(Node** head)
+{
+
+   if((*head)==NULL)
+   {
+       cout<<"List is Empty<<endl"<<endl;
+   }
+   
+   Node* current = (*head);
+   Node* prev=NULL;
+   Node* next = NULL; 
+  
+   while(current !=NULL)
+   {
+      next = current->nptr;
+      current->nptr = prev;
+      prev= current;
+      current = next;  
+   } 
+   (*head) =prev;
+  return ;
+}
+
 int main()
 {
 
@@ -190,11 +213,11 @@ int main()
    //deleteNodeLastToList(&head);
    //printList(head);
    //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
-   head->nptr->nptr->nptr->nptr->nptr = head->nptr;
-   detectLoopInList(head);
-
+   //head->nptr->nptr->nptr->nptr->nptr = head->nptr;
+   //detectLoopInList(head);
+   reverseList(&head);
    //deleteNodeKeyToList(&head, 2);
-   //printList(head);
+   printList(head);
    //cout<<"Length of List: "<<FindLengthToList(head)<<endl;
 
   
