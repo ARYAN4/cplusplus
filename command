@@ -27,5 +27,28 @@ Git command:
 
 8- Show changes between commits, commit and working tree
    git diff
-9- Fetch from and integrate with another repository or a local branch
+
+9- update the local workspace as well local repo.
    git pull
+
+10- Join two or more development histories together 
+    git merfe branch_name1 branch_name2
+
+11- update local repo (for more detail check pull vs fetch image)
+    git fetch   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
