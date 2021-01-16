@@ -15,3 +15,5 @@ Git command:
 4- Discard changes in working file
    git checkout filename
 
+5- Unstage the file
+   git reset HEAD filename
