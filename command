@@ -9,7 +9,7 @@ Git command:
 2- Record changes to the repository
    git commit -m "message"
 
-3- push code to repo:
+3- Push code to repo:
    git push origin master
 
 4- Discard changes in working file
