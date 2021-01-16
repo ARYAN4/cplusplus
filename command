@@ -28,3 +28,4 @@ Git command:
 8- Show changes between commits, commit and working tree
    git diff
 9- Fetch from and integrate with another repository or a local branch
+   git pull
