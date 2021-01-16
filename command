@@ -14,6 +14,9 @@ Git command:
 
 4- Discard changes in working file
    git checkout filename
+   
+   Switch to branch
+   git checkout branch_name
 
 5- Unstage the files
    git reset HEAD filename
@@ -32,15 +35,16 @@ Git command:
    git pull
 
 10- Join two or more development histories together 
-    git merfe branch_name1 branch_name2
+    git merge branch_name1 branch_name2
 
 11- update local repo (for more detail check pull vs fetch image)
     git fetch   
     
+12- Create branch
+    git branch branch_name
 
-
-
-
+13- To see the current working branch
+    git branch 
 
 
 
