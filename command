@@ -12,3 +12,6 @@ Git command:
 3- push code to repo:
    git push origin master
 
+4- Discard changes in working file
+   git checkout filename
+
